@@ -27,6 +27,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest
+          pip install flake8
 
       - name: Run Bandit SAST Scan
         run: |
@@ -54,6 +55,10 @@ jobs:
         with:
             name: bandit_results
             path: bandit_results.json
+
+      - name: Run Flake8 scanner
+        run: |
+          flake8 . --count --statistics || true   
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
