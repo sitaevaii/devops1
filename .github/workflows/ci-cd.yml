@@ -49,6 +49,12 @@ jobs:
           echo "Bandit report not found. Assuming no issues."
           fi
 
+      - name: Upload Bandit Check Results
+        uses: actions/upload-artifact@v4
+        with:
+            name: bandit_results
+            path: bandit_results.json
+
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
