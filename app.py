@@ -13,4 +13,4 @@ def hello_world():
     return f'<h1>Hello, user #{user_id}!</h1>'
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
